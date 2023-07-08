@@ -52,6 +52,18 @@ while True:
         if not found:
             print("Student ID not found")
 
+    elif choice == 5:  # Update Student ID
+        id = int(input("Enter existing Student ID to update: "))
+        new_id = int(input("Enter new Student ID: "))
+        found = False
+        for j in range(len(arr)):
+            if arr[j].id == id:
+                arr[j].id = new_id
+                print("Student ID updated")
+                found = True
+                break
+        if not found:
+            print("Student ID not found")
 
 
     elif choice == 6:  # Display Student IDs
