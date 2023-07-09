@@ -7,6 +7,20 @@ class Student:
 def add_student():
     id = int(entry_id.get())
     arr.append(Student(id))
+    
+def delete_student():
+    id = int(entry_id.get())
+    found = False
+    for j in range(len(arr)):
+        if arr[j].id == id:
+            del arr[j]
+            found = True
+            break
+    if found:
+        result_label.config(text="Student ID deleted")
+    else:
+        result_label.config(text="Student ID not found")
+    entry_id.delete(0, tk.END)
 
 
 
@@ -34,6 +48,9 @@ entry_new_id.grid(row=2, column=1, padx=5, pady=5)
 button_add = tk.Button(root, text="Add Student ID", command=add_student)
 button_add.grid(row=3, column=0, padx=5, pady=5)
 
+
+button_delete = tk.Button(root, text="Delete Student ID", command=delete_student)
+button_delete.grid(row=3, column=1, padx=5, pady=5)
 
 arr = []
 
